@@ -29,138 +29,19 @@ url=false
 \addbibresource{biblio.bib}
 
 \begin{document}
-\sloppy
-\begin{center}
-	{{
-		\Large{
-			\textsc{PhD Programme in Computer Science and Engineering \\ 
-			\vspace{4mm}
-			Cycle XXXVI}
-			}
-	}} 
-	\rule[0.1cm]{\textwidth}{0.1mm}
-	\rule[0.4cm]{\textwidth}{0.6mm}
-\end{center}
-
-\begin{center}
-	{\LARGE{A Language-based Software Engineering Approach for Cyber-Physical Swarms}} \\
-	\vspace{4mm}
-	{\large{PhD Year III -- Report}} 
-	\vspace{4mm}
-\end{center}
-\vspace{8mm}
-\par
-\noindent
-\begin{minipage}[t]{0.47\textwidth}
-
-{\large{Commission: \\\bf
-Prof. Mirko Viroli \\
-Prof. Andrea Omicini \\
-Prof. Matteo Ferrara} 
-}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.47\textwidth}
-	\raggedleft
-	{
-		\large{PhD Student: \\\bf Gianluca Aguzzi}
-	}
-\end{minipage}
-\vspace{10mm}
-
-{
-	\raggedright
-	\rule[0.1cm]{\textwidth}{0.6mm}
-	\rule[0.5cm]{\textwidth}{0.1mm}
-}
-
-\newcommand{\rev}[1]{{
-	%\color{red}
-	#1
-	}}
-\section{Introduction}
-Over recent years, various research domains including pervasive~\cite{pervasive}, ubiquitous~\cite{weiser1999computer}, collective~\cite{abowd2016beyond}, and everyware computing~\cite{greenfield2010everyware} have been promoting a vision 
- that encompasses a multitude of computational devices like smartphones, 
- PCs, and embedded systems, working in unison to construct collective applications. 
-Within this backdrop, my research refers to these expansive multi-agent systems as \textit{Cyber-Physical Swarms} (CPSWs).
-
-The terminology draws inspiration from nature, 
- suggesting that this extensive network of computational devices can be viewed, 
- from a macroscopic standpoint, as a ``swarm''. 
-% 
-These swarms consist of basic units that engage in local interactions to accomplish sophisticated collective tasks. 
- Additionally, these units are \textit{cyber-physical}, 
- meaning they possess a physical manifestation that allows them to interact with and modify the real world.
-
-This conceptual framework is applicable to various types of systems, 
- including \textit{swarm robotics}, \textit{human crowds}, or more broadly, IoT device ``swarms''.
-
-Creating applications for CPSWs presents numerous challenges, such as:
-\begin{enumerate}
-\item the inherent stochasticity of the environments these entities inhabit,
-\item the problem of the controlled emergence from local to collective behaviours, and
-\item the absence of a centralized governing body for agent coordination.
-\end{enumerate}
-
-Current research efforts are focused on devising resilient, 
- efficient, and effective self-adaptive collective behaviours, 
- akin to those observed in natural settings. 
-% 
-My primary objective during my PhD is to develop a systematic approach—comprising models, 
- techniques, and algorithms—for generating and implementing self-organizing behaviours with predictable outcomes in CPSWs.
-
-Specifically, my work adopts a language-centric methodology, constructing models and tools around a chosen programming language. I
- predominantly utilize aggregate computing (AC)~\cite{beal2015aggregate}, 
- a groundbreaking global-to-local programming paradigm. 
-%
-I opted for this language because its abstractions simplify the development of collective applications in the context of CPSWs, treating collective behaviour as evolving \textit{computational fields} that can be manipulated functionally and declaratively.
-
-Although AC has already found applications in various contexts, 
- there remains a need to both venture into new research avenues and enhance existing solutions. 
- This is crucial for bridging the gap between theory and practice, enabling the use of AC in contemporary distributed applications. During my third year, I have continued to explore this research landscape, 
- investigating new API for expressing collective behaviours and going deeper into the integration of Machine Learning techniques in the AC stack.
-\section{Research}
-
-In this last year, 
- I successfully integrated machine learning methodologies into the aggregate computing framework. 
- I pioneered a novel approach known as Field-Informed Reinforcement Learning, 
- which synergizes deep reinforcement learning, graph neural networks, and aggregate computing to engineer robust collective behaviours. 
- To facilitate this integration, I created ScaRLib, a specialized tool designed to streamline the implementation of multi-agent reinforcement learning scenarios where aggregate computing is involved.
-
-Concurrently, 
- I also focused on software engineering aspects, 
- developing a new API for swarm robotics named MacroSwarm and introducing a novel reactive paradigm called FRASP. 
-Finally, I also prepared a tutorial for ScaFi~\cite{scafi} -- the reference framework for aggregate computing -- in order to disseminate knowledge about this paradigm and its applications.
- Detailed explanations for each of these works will follow.
-\subsection{Activities}
-\begin{itemize}
-	\item
-	%\textit{\citefield{roadmap}{title}}~\cite{roadmap} 
-	\textit{Field-informed Reinforcement Learning of Collective Tasks with Graph Neural Networks} proposes a novel hybrid approach called Field-Informed Reinforcement Learning (FIRL) for coordinating multi-agent systems. 
-	FIRL combines manual and automatic design methods by utilizing computational fields for global agent coordination and employing Deep Q-Learning along with Graph Neural Networks (GNNs) for local behaviour learning. 
-	The approach allows agents to solve collective tasks like tracking and covering in swarm robotics by using only local information at runtime, thus balancing the benefits of both manual and automatic design methods. 
-	The paper demonstrates the effectiveness of FIRL through simulated use cases
-
-\item \textit{ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement Learning in Scala}~\cite{scarlib} introduces a Scala-based framework designed to support the development of Cooperative Many Agent Reinforcement Learning (CMARL) systems. 
-The framework aims to facilitate the specification of centralized training and decentralized execution in multi-agent systems. 
-It is built on top of state-of-the-art deep learning libraries and is designed to be easily extensible. 
-ScaRLib integrates with the Alchemist simulator and the ScaFi programming framework, enabling the learning of field-based coordination policies for large-scale systems. 
-The paper also provides basic demonstrations to showcase the capabilities of ScaRLib. 
- 
-\item \textit{MacroSwarm: a Field-based Compositional Framework for Swarm Programming}~\cite{macroswarm} describes a framework for designing fully composable and reusable blocks of swarm behaviour. The framework is based on the macroprogramming approach of aggregate computing and focuses on field-based coordination. MacroSwarm aims to address the challenges in swarm behaviour engineering, such as the need for a general design and implementation method. It allows for the modelling of each block of swarm behaviour as a functional transformation of sensing fields into actuation fields. The paper demonstrates the potential of MacroSwarm through simulations in various scenarios including flocking, morphogenesis, and collective decision-making
-\item \textit{Self-Organisation Programming: A Functional Reactive Macro Approach} presents a new programming model that aims to decouple the program logic from the scheduling of its sub-activities in self-organizing systems. It is implemented as a Scala domain-specific language (DSL) and leverages the functional reactive library Sodium. The paper argues that FRASP maintains the expressiveness and benefits of aggregate programming while offering improvements in scheduling controllability, flexibility in the sensing/actuation model, and execution efficiency. The work also includes experimental evaluations to demonstrate the benefits of reactivity and resource usage.
-\end{itemize}
-
+\title{PhD Activities recap}
+\maketitle
 \section{Talks}
 \begin{enumerate}
-	\item MacroSwarm: A Field-Based Compositional Framework for Swarm Programming @ COORDINATION 2023, 19 - 23 June 2022, Lisbon
-	\item ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement Learning in Scala @ COORDINATION 2023, 19 - 23 June 2022, Lisbon
 	\item Field-informed Reinforcement Learning of Collective Tasks with Graph Neural Networks @ ACSOS 2023, 25 - 29 September 2023, Toronto
 	\item Self-Organisation Programming: A Functional Reactive Macro Approach @ ACSOS 2023, 25 - 29 September 2023, Toronto
 	\item Programming (and Learning) Self-Adaptive \& Self-Organizing Behaviour with ScaFi: for Swarms, Edge-Cloud Ecosystems, and More @ ACSOS 2023, 25 - 29 September 2023, Toronto
+	\item MacroSwarm: A Field-Based Compositional Framework for Swarm Programming @ COORDINATION 2023, 19 - 23 June 2022, Lisbon
+	\item ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement Learning in Scala @ COORDINATION 2023, 19 - 23 June 2022, Lisbon
 \end{enumerate}
 \section{International Conference Activities}
 \begin{enumerate}
+	\item Artifact Evaluation Committee @ PerCom 2024
 	\item Artifact Evaluation Committee @ PerCom 2023
 	\item PC Chair @ DISCOLI 2023
 	\item PC Chair @ MADTECC 2024
@@ -172,12 +53,12 @@ The paper also provides basic demonstrations to showcase the capabilities of Sca
 \end{enumerate}
 \section{Teaching}
 \begin{enumerate}
-	\item Tutor @ Padigmi di Progettazione e Sviluppo (PPS), Ingegneria e Scienze Informatiche, 30 ore
-	\item Tutor @ Programmazione Concorrente e Distribuita (PCD), Ingegneria e Scienze Informatiche, 30 ore
-	\item Seminar entitled ``Scala: a Cross-Platform Language'' @ PPS
-	\item Seminar entitled ``Scala(e) to the large. Concurrent programming in Scala and relevant Frameworks'' @ PPS
-	\item Seminar entitled ``Akka: An introduction'' @ PCD
-	\item Seminar entitled ``Akka for Distributed Systems'' @ PCD
+	\item Tutor @ Padigmi di Progettazione e Sviluppo (PPS), Ingegneria e Scienze Informatiche, 30 hours (2021-2023)
+	\item Tutor @ Programmazione Concorrente e Distribuita (PCD), Ingegneria e Scienze Informatiche, 30 ore (2021-2023)
+	\item Seminar entitled ``Scala: a Cross-Platform Language'' @ PPS (2022-2023)
+	\item Seminar entitled ``Scala(e) to the large. Concurrent programming in Scala and relevant Frameworks'' @ PPS (2023)
+	\item Seminar entitled ``Akka: An introduction'' @ PCD (2021 - 2023)
+	\item Seminar entitled ``Akka for Distributed Systems'' @ PCD (2021 - 2023)
 	\item Lesson entitled ``Reinforcement Learning, an introduction'' @ ASAI Summer School 2023
 	\item Seminar entitled ``Multi-Agent Reinforcement Learning'' @ ASAI Summer School 2023
 \end{enumerate}
@@ -190,38 +71,19 @@ The paper also provides basic demonstrations to showcase the capabilities of Sca
 		Professor & Course & Kind & Credits & Period & Exam \\ \hline
 		Catia Prandi & Data Visualization for Scientist & PhD Course & \makecell{10 hours \\ 2 proposed credits} & \makecell{2023} & Done \\ \hline
 		Danilo Pianini & \makecell{DevOps meets Scientific Research} & \makecell{PhD Course} & \makecell{20 hours \\ 4 credits } & \makecell{July \\ 2023} & Done \\ \hline
-		\makecell{DeepLearn 2023 \\ Summer School} & \makecell{X} & \makecell{July \\ 2023} & Not Done \\ \hline
+		\makecell{X} & \makecell{DeepLearn 2023 \\ Summer School} & Summer School  & \makecell{July \\ 2023} & \makecell{20 hours \\ 4 credits } & Not present \\ \hline
 		X & \makecell{MOOC \\ Introduction to Dynamical Systems and Chaos \\ \href{https://www.complexityexplorer.org/courses/166-introduction-to-dynamical-systems-and-chaos}{\textbf{MOOC}}} & \makecell{MOOC} & \makecell{15 hours \\ 3 proposed credits} & \makecell{2023} & \makecell{Done} \\ \hline
+		X & \makecell{European Agent \\ Systems Summer School \\ \href{https://paginas.fe.up.pt/~easss2021/}{\textbf{EASSS 2021}}} & \makecell{PhD Summer \\ School} & \makecell{28 hours \\ 4 proposed credits} & \makecell{July \\ 2021} & \makecell{Not present \\ certificate of attendance} \\ \hline
 	
 	\end{tabular}
 	}
 \end{table}
 
-\section{Papers}
-\subsection{Published}
-\begin{itemize}
-	\item \fullcite{macroswarm}
-	\\{\footnotesize\textbf{Abstract:} \citefield{macroswarm}{abstract}}
-	\item \fullcite{scarlib}
-	\\{\footnotesize\textbf{Abstract:} \citefield{scarlib}{abstract}}
-\end{itemize}
-\subsection{Accepted}
-\begin{itemize}
-	\item \fullcite{acgnn}
-	\\{\footnotesize\textbf{Abstract:} \citefield{acgnn}{abstract}}
-	\item \fullcite{frasp}
-	\\{\footnotesize\textbf{Abstract:} \citefield{frasp}{abstract}}
-	\item \fullcite{scafitutorial}
-	\\{\footnotesize\textbf{Abstract:} \citefield{scafitutorial}{abstract}}
-\end{itemize}
 \section{Full publication list}
 \nocite{*}
 \subsection{Journals}
 \printbibliography[check=mine, heading=none, type=article]
 \subsection{Conference/Workshops}
 \printbibliography[check=mine, heading=none, type=inproceedings]
-\section{References}
-
-\printbibliography[heading=none, category=cited]
 
 \end{document}
